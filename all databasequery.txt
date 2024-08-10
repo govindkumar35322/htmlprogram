@@ -1,0 +1,991 @@
+
+mysql> select *from employe;
++-------+----------------+--------+------+------------+
+| empid | name           | salary | age  | city       |
++-------+----------------+--------+------+------------+
+|     1 | govind         |  15000 |   22 | patna      |
+|     2 | gopal          | 150000 |   22 | pune       |
+|     2 | gopal          | 150000 |   22 | pune       |
+|     3 | aman kumar     | 150000 |   24 | pune       |
+|     4 | anmol          | 150000 |   23 | panipath   |
+|     5 | ramanjee       |  15000 |   21 | pune       |
+|     6 | gopi           | 150000 |   32 | pune       |
+|     7 | gulshna rahane |  11500 |   22 | usa        |
+|     8 | rohit          | 150000 |   24 | pundichari |
+|     9 | kimu gushai    |  15400 |   22 | delhi      |
+|    10 | amit patel     | 154000 |   24 | begusarai  |
+|    11 | rohan sunar    | 150000 |   22 | patna      |
+|    12 | aman bhist     |  20000 |   24 | patna      |
+|    13 | aman ray       | 150000 |   24 | pune       |
+|    14 | anmol kumar    | 150000 |   23 | panipath   |
+|    15 | raman yadav    |  15000 |   21 | pune       |
+|    16 | gopi           | 150000 |   32 | pune       |
+|    17 | gulshna ray    |  11500 |   22 | usa        |
+|    18 | rohit kumar    | 150000 |   24 | pundichari |
+|    19 | kimu gushai    |  15400 |   22 | delhi      |
+|    20 | amit yadav     | 154000 |   24 | begusarai  |
+|    21 | rohan kumar    | 150000 |   22 | patna      |
+|    22 | gagan bhist    |  20000 |   24 | bangoluru  |
+|    23 | rupam ray      |  10000 |   24 | pune       |
+|    24 | ankit kumar    |  50000 |   23 | panipath   |
+|    25 | balram yadav   | 115000 |   21 | pune       |
+|    26 | rakesh         | 140000 |   32 | pune       |
+|    27 | golu ray       |  11500 |   26 | usa        |
+|    28 | rohit shingh   | 160000 |   64 | pundichari |
+|    29 | kimu shinhg    |  16400 |   52 | delhi      |
+|    30 | amit shingh    |  15000 |   45 | begusarai  |
+|    31 | anand kumar    | 150890 |   34 | patna      |
++-------+----------------+--------+------+------------+
+32 rows in set (0.06 sec)
+
+mysql> select sum(salary) from employe;
++-------------+
+| sum(salary) |
++-------------+
+|     2915590 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employe;
++-------------+
+| avg(salary) |
++-------------+
+|  91112.1875 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) from employe;
++-------------+
+| min(salary) |
++-------------+
+|       10000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employe;
++-------------+
+| max(salary) |
++-------------+
+|      160000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from employe;
++----------+
+| count(*) |
++----------+
+|       32 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql> select distinct(salary) from employe;
++--------+
+| salary |
++--------+
+|  15000 |
+| 150000 |
+|  11500 |
+|  15400 |
+| 154000 |
+|  20000 |
+|  10000 |
+|  50000 |
+| 115000 |
+| 140000 |
+| 160000 |
+|  16400 |
+| 150890 |
++--------+
+
+
+mysql> select distinct(name)from employe;
++----------------+
+| name           |
++----------------+
+| govind         |
+| gopal          |
+| aman kumar     |
+| anmol          |
+| ramanjee       |
+| gopi           |
+| gulshna rahane |
+| rohit          |
+| kimu gushai    |
+| amit patel     |
+| rohan sunar    |
+| aman bhist     |
+| aman ray       |
+| anmol kumar    |
+| raman yadav    |
+| gulshna ray    |
+| rohit kumar    |
+| amit yadav     |
+| rohan kumar    |
+| gagan bhist    |
+| rupam ray      |
+| ankit kumar    |
+| balram yadav   |
+| rakesh         |
+| golu ray       |
+| rohit shingh   |
+| kimu shinhg    |
+| amit shingh    |
+| anand kumar    |
++----------------+
+29 rows in set (0.00 sec)
+
+mysql> select distinct(city) from employe;
++------------+
+| city       |
++------------+
+| patna      |
+| pune       |
+| panipath   |
+| usa        |
+| pundichari |
+| delhi      |
+| begusarai  |
+| bangoluru  |
++------------+
+8 rows in set (0.00 sec)
+
+mysql> select distinct(age) from employe;
++------+
+| age  |
++------+
+|   22 |
+|   24 |
+|   23 |
+|   21 |
+|   32 |
+|   26 |
+|   64 |
+|   52 |
+|   45 |
+|   34 |
++------+
+10 rows in set (0.00 sec)
+mysql> alter table employe add(Bgroup varchar(77));
+Query OK, 0 rows affected (0.68 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employe;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empid  | int          | YES  |     | NULL    |       |
+| name   | varchar(255) | YES  |     | NULL    |       |
+| salary | int          | YES  |     | NULL    |       |
+| age    | int          | YES  |     | NULL    |       |
+| city   | varchar(255) | YES  |     | NULL    |       |
+| Bgroup | varchar(77)  | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+6 rows in set (0.23 sec)
+mysql> select city from employe where not city="pune";
++------------+
+| city       |
++------------+
+| patna      |
+| panipath   |
+| usa        |
+| pundichari |
+| delhi      |
+| begusarai  |
+| patna      |
+| patna      |
+| panipath   |
+| usa        |
+| pundichari |
+| delhi      |
+| begusarai  |
+| patna      |
+| bangoluru  |
+| panipath   |
+| usa        |
+| pundichari |
+| delhi      |
+| begusarai  |
+| patna      |
++------------+
+21 rows in set (0.01 sec)
+
+mysql> select city from employe where not city="patna";
++------------+
+| city       |
++------------+
+| pune       |
+| pune       |
+| pune       |
+| panipath   |
+| pune       |
+| pune       |
+| usa        |
+| pundichari |
+| delhi      |
+| begusarai  |
+| pune       |
+| panipath   |
+| pune       |
+| pune       |
+| usa        |
+| pundichari |
+| delhi      |
+| begusarai  |
+| bangoluru  |
+| pune       |
+| panipath   |
+| pune       |
+| pune       |
+| usa        |
+| pundichari |
+| delhi      |
+| begusarai  |
++------------+
+27 rows in set (0.00 sec)
+
+mysql> select city from employe where  city="patna";
++-------+
+| city  |
++-------+
+| patna |
+| patna |
+| patna |
+| patna |
+| patna |
++-------+
+5 rows in set (0.00 sec)
+
+mysql> select city from employe where  city="pune";
++------+
+| city |
++------+
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
++------+
+11 rows in set (0.00 sec)
+
+mysql> select city from employe where  city="delhi";
++-------+
+| city  |
++-------+
+| delhi |
+| delhi |
+| delhi |
++-------+
+3 rows in set (0.00 sec)
+
+mysql> select city from employe where  city="begusarai";
++-----------+
+| city      |
++-----------+
+| begusarai |
+| begusarai |
+| begusarai |
++-----------+
+3 rows in set (0.00 sec)
+
+mysql> select city from employe where  city="pune" and salary>15000;
++------+
+| city |
++------+
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
+| pune |
++------+
+8 rows in set (0.00 sec)
+
+mysql> select name from employe where  city="pune" and salary>15000;
++--------------+
+| name         |
++--------------+
+| gopal        |
+| gopal        |
+| aman kumar   |
+| gopi         |
+| aman ray     |
+| gopi         |
+| balram yadav |
+| rakesh       |
++--------------+
+8 rows in set (0.00 sec)
+
+mysql> select name from employe where  city="pune" and salary>150000;
+Empty set (0.00 sec)
+
+mysql> select name from employe where  city="patna" and salary>15000;
++-------------+
+| name        |
++-------------+
+| rohan sunar |
+| aman bhist  |
+| rohan kumar |
+| anand kumar |
++-------------+
+4 rows in set (0.00 sec)
+
+mysql> select name from employe where  city="patna" or salary>15000;
++--------------+
+| name         |
++--------------+
+| govind       |
+| gopal        |
+| gopal        |
+| aman kumar   |
+| anmol        |
+| gopi         |
+| rohit        |
+| kimu gushai  |
+| amit patel   |
+| rohan sunar  |
+| aman bhist   |
+| aman ray     |
+| anmol kumar  |
+| gopi         |
+| rohit kumar  |
+| kimu gushai  |
+| amit yadav   |
+| rohan kumar  |
+| gagan bhist  |
+| ankit kumar  |
+| balram yadav |
+| rakesh       |
+| rohit shingh |
+| kimu shinhg  |
+| anand kumar  |
++--------------+
+25 rows in set (0.00 sec)
+mysql> select *from employe order by name;
++-------+----------------+--------+------+------------+--------+
+| empid | name           | salary | age  | city       | Bgroup |
++-------+----------------+--------+------+------------+--------+
+|    12 | aman bhist     |  20000 |   24 | patna      | NULL   |
+|     3 | aman kumar     | 150000 |   24 | pune       | NULL   |
+|    13 | aman ray       | 150000 |   24 | pune       | NULL   |
+|    10 | amit patel     | 154000 |   24 | begusarai  | NULL   |
+|    30 | amit shingh    |  15000 |   45 | begusarai  | NULL   |
+|    20 | amit yadav     | 154000 |   24 | begusarai  | NULL   |
+|    31 | anand kumar    | 150890 |   34 | patna      | NULL   |
+|    24 | ankit kumar    |  50000 |   23 | panipath   | NULL   |
+|     4 | anmol          | 150000 |   23 | panipath   | NULL   |
+|    14 | anmol kumar    | 150000 |   23 | panipath   | NULL   |
+|    25 | balram yadav   | 115000 |   21 | pune       | NULL   |
+|    22 | gagan bhist    |  20000 |   24 | bangoluru  | NULL   |
+|    27 | golu ray       |  11500 |   26 | usa        | NULL   |
+|     2 | gopal          | 150000 |   22 | pune       | NULL   |
+|     2 | gopal          | 150000 |   22 | pune       | NULL   |
+|     6 | gopi           | 150000 |   32 | pune       | NULL   |
+|    16 | gopi           | 150000 |   32 | pune       | NULL   |
+|     1 | govind         |  15000 |   22 | patna      | NULL   |
+|     7 | gulshna rahane |  11500 |   22 | usa        | NULL   |
+|    17 | gulshna ray    |  11500 |   22 | usa        | NULL   |
+|     9 | kimu gushai    |  15400 |   22 | delhi      | NULL   |
+|    19 | kimu gushai    |  15400 |   22 | delhi      | NULL   |
+|    29 | kimu shinhg    |  16400 |   52 | delhi      | NULL   |
+|    26 | rakesh         | 140000 |   32 | pune       | NULL   |
+|    15 | raman yadav    |  15000 |   21 | pune       | NULL   |
+|     5 | ramanjee       |  15000 |   21 | pune       | NULL   |
+|    21 | rohan kumar    | 150000 |   22 | patna      | NULL   |
+|    11 | rohan sunar    | 150000 |   22 | patna      | NULL   |
+|     8 | rohit          | 150000 |   24 | pundichari | NULL   |
+|    18 | rohit kumar    | 150000 |   24 | pundichari | NULL   |
+|    28 | rohit shingh   | 160000 |   64 | pundichari | NULL   |
+|    23 | rupam ray      |  10000 |   24 | pune       | NULL   |
++-------+----------------+--------+------+------------+--------+
+32 rows in set (0.04 sec)
+
+mysql> select *from employe order by name desc;
++-------+----------------+--------+------+------------+--------+
+| empid | name           | salary | age  | city       | Bgroup |
++-------+----------------+--------+------+------------+--------+
+|    23 | rupam ray      |  10000 |   24 | pune       | NULL   |
+|    28 | rohit shingh   | 160000 |   64 | pundichari | NULL   |
+|    18 | rohit kumar    | 150000 |   24 | pundichari | NULL   |
+|     8 | rohit          | 150000 |   24 | pundichari | NULL   |
+|    11 | rohan sunar    | 150000 |   22 | patna      | NULL   |
+|    21 | rohan kumar    | 150000 |   22 | patna      | NULL   |
+|     5 | ramanjee       |  15000 |   21 | pune       | NULL   |
+|    15 | raman yadav    |  15000 |   21 | pune       | NULL   |
+|    26 | rakesh         | 140000 |   32 | pune       | NULL   |
+|    29 | kimu shinhg    |  16400 |   52 | delhi      | NULL   |
+|     9 | kimu gushai    |  15400 |   22 | delhi      | NULL   |
+|    19 | kimu gushai    |  15400 |   22 | delhi      | NULL   |
+|    17 | gulshna ray    |  11500 |   22 | usa        | NULL   |
+|     7 | gulshna ra000 |   24 | begusarai  | NULL   |
+|    30 | amit shingh    |  15000 |   45 | begusarai  | NULL   |
+|    10 | amit patel     | 154000 |   24 | begusarai  | NULL   |
+|    13 | aman ray       | 150000 |   24 | pune       | NULL   |
+|     3 | aman kumar     | 150000 |   24 | pune       | NULL   |
+|    12 | aman bhist     |  20000 |   24 | patna      | NULL   |
++-------+----------------+--------+------+------------+--------+
+32 rows in set (0.00 sec)
+
+mysql> select *from employe order by name asc,city desc;
++-------+----------------+--------+------+------------+--------+
+| empid | name           | salary | age  | city       | Bgroup |
++-------+----------------+--------+------+------------+--------+
+|    12 | aman bhist     |  20000 |   24 | patna      | NULL   |
+|     3 | aman kumar     | 150000 |   24 | pune       | NULL   |
+|    13 | aman ray       | 150000 |   24 | pune       | NULL   |
+|    10 | amit patel     | 154000 |   24 | begusarai  | NULL   |
+|    30 | amit shingh    |  15000 |   45 | begusarai  | NULL   |
+|    20 | amit yadav     | 154000 |   24 | begusarai  | NULL   |
+|    31 | anand kumar    | 150890 |   34 | patna      | NULL   |
+|    24 | ankit kumar    |  50000 |   23 | panipath   | NULL   |
+|     4 | anmol          | 150000 |   23 | panipath   | NULL   |
+|    14 | anmol kumar    | 150000 |   23 | panipath   | NULL   |
+|    25 | balram yadav   | 115000 |   21 | pune       | NULL   |
+|    22 | gagan bhist    |  20000 |   24 | bangoluru  | NULL   |
+|    27 | golu ray       |  11500 |   26 | usa        | NULL   |
+|     2 | gopal          | 150000 |   22 | pune       | NULL   |
+|     2 | gopal          | 150000 |   22 | pune       | NULL   |
+|     6 | gopi           | 150000 |   32 | pune       | NULL   |
+|    16 | gopi           | 150000 |   32 | pune       | NULL   |
+|     1 | govind         |  15000 |   22 | patna      | NULL   |
+|     7 | gulshna rahane |  11500 |   22 | usa        | NULL   |
+|    17 | gulshna ray    |  11500 |   22 | usa        | NULL   |
+|     9 | kimu gushai    |  15400 |   22 | delhi      | NULL   |
+|    19 | kimu gushai    |  15400 |   22 | delhi      | NULL   |
+|    29 | kimu shinhg    |  16400 |   52 | delhi      | NULL   |
+|    26 | rakesh         | 140000 |   32 | pune       | NULL   |
+|    15 | raman yadav    |  15000 |   21 | pune       | NULL   |
+|     5 | ramanjee       |  15000 |   21 | pune       | NULL   |
+|    21 | rohan kumar    | 150000 |   22 | patna      | NULL   |
+|    11 | rohan sunar    | 150000 |   22 | patna      | NULL   |
+|     8 | rohit          | 150000 |   24 | pundichari | NULL   |
+|    18 | rohit kumar    | 150000 |   24 | pundichari | NULL   |
+|    28 | rohit shingh   | 160000 |   64 | pundichari | NULL   |
+|    23 | rupam ray      |  10000 |   24 | pune       | NULL   |
++-------+----------------+--------+------+------------+--------+
+32 rows in set (0.00 sec)
+2 rows in set (0.00 sec)
+
+mysql> update  employe set bgroup='ab-' where empid=20;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='a+' where empid=21;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='b+' where empid=22;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='ab+' where empid=23;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='ab-' where empid=24;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='ab+' where empid=25;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='b+' where empid=26;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='a+' where empid=27;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='a+' where empid=28;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='b+' where empid=29;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='ab' where empid=30;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='a-' where empid=31;
+Query OK, 1 row affected (0.29 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employe set bgroup='ab+' where empid=32;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update  employe set bgroup='ab-' where empid=33;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from employe;
++-------+----------------+--------+------+------------+--------+
+| empid | name           | salary | age  | city       | Bgroup |
++-------+----------------+--------+------+------------+--------+
+|     1 | govind         |  15000 |   22 | patna      | a+     |
+|     2 | gopal          | 150000 |   22 | pune       | a+     |
+|     2 | gopal          | 150000 |   22 | pune       | a+     |
+|     3 | aman kumar     | 150000 |   24 | pune       | b+     |
+|     4 | anmol          | 150000 |   23 | panipath   | ab+    |
+|     5 | ramanjee       |  15000 |   21 | pune       | ab-    |
+|     6 | gopi           | 150000 |   32 | pune       | a+     |
+|     7 | gulshna rahane |  11500 |   22 | usa        | b+     |
+|     8 | rohit          | 150000 |   24 | pundichari | ab+    |
+|     9 | kimu gushai    |  15400 |   22 | delhi      | ab-    |
+|    10 | amit patel     | 154000 |   24 | begusarai  | ab+    |
+|    11 | rohan sunar    | 150000 |   22 | patna      | b+     |
+|    12 | aman bhist     |  20000 |   24 | patna      | a+     |
+|    13 | aman ray       | 150000 |   24 | pune       | a+     |
+|    14 | anmol kumar    | 150000 |   23 | panipath   | b+     |
+|    15 | raman yadav    |  15000 |   21 | pune       | ab     |
+|    16 | gopi           | 150000 |   32 | pune       | a-     |
+|    17 | gulshna ray    |  11500 |   22 | usa        | ab+    |
+|    18 | rohit kumar    | 150000 |   24 | pundichari | ab-    |
+|    19 | kimu gushai    |  15400 |   22 | delhi      | ab+    |
+|    20 | amit yadav     | 154000 |   24 | begusarai  | ab-    |
+|    21 | rohan kumar    | 150000 |   22 | patna      | a+     |
+|    22 | gagan bhist    |  20000 |   24 | bangoluru  | b+     |
+|    23 | rupam ray      |  10000 |   24 | pune       | ab+    |
+|    24 | ankit kumar    |  50000 |   23 | panipath   | ab-    |
+|    25 | balram yadav   | 115000 |   21 | pune       | ab+    |
+|    26 | rakesh         | 140000 |   32 | pune       | b+     |
+|    27 | golu ray       |  11500 |   26 | usa        | a+     |
+|    28 | rohit shingh   | 160000 |   64 | pundichari | a+     |
+|    29 | kimu shinhg    |  16400 |   52 | delhi      | b+     |
+|    30 | amit shingh    |  15000 |   45 | begusarai  | ab     |
+|    31 | anand kumar    | 150890 |   34 | patna      | a-     |
++-------+----------------+--------+------+------------+--------+
+32 rows in set (0.00 sec)
+
+mysql>
+mysql> select * from dept;
++-------+------------------+--------------+-------------------+------------+
+| empid | position         | dateofjoning | pro_name          | experience |
++-------+------------------+--------------+-------------------+------------+
+|     1 | manager          | 2012-05-23   | sowfter           | 5year      |
+|     2 | manager          | 2001-07-23   | alchatbot         | 6year      |
+|     3 | freasher         | 2015-05-23   | hardware          | 5year      |
+|     4 |  project manager | 2012-06-23   | development       | 5year      |
+|     5 | manager          | 2018-05-13   | sowfter           | 5year      |
+|     6 |  accountant      | 2012-11-14   | erp system        | 5year      |
+|     7 |  asst-manager    | 2018-10-07   | sowfter           | 5year      |
+|     8 | manager          | 2012-05-13   | sowfter           | 5year      |
+|     9 | cleark           | 2021-09-13   | dbms              | 5year      |
+|    10 | manager          | 2012-05-21   | sowfter           | 5year      |
+|    11 | manager          | 2012-05-22   | ml                | 5year      |
+|    12 | manager          | 2012-05-21   | sowfter           | 5year      |
+|    13 | developer        | 2012-04-23   | blockchain        | 5year      |
+|    14 | manager          | 2012-07-23   | sowfter           | 5year      |
+|    15 | reachers         | 2023-06-23   | sowfter           | 5year      |
+|    16 | head manager     | 2029-05-23   | natwok management | 5year      |
+|    17 | manager          | 2014-05-23   | sowfter           | 5year      |
+|    18 | dept-manager     | 2011-05-23   | sowfter           | 5year      |
+|    19 | manager          | 0001-05-23   | sowfter           | 5year      |
+|    20 | manager          | 0002-05-23   | sowfter           | 5year      |
++-------+------------------+--------------+-------------------+------------+
+20 rows in set (0.00 sec)
+
+mysql> desc dept;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| empid        | int          | NO   | PRI | NULL    |       |
+| position     | varchar(50)  | YES  |     | NULL    |       |
+| dateofjoning | date         | YES  |     | NULL    |       |
+| pro_name     | varchar(200) | YES  |     | NULL    |       |
+| experience   | varchar(56)  | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+    -> FROM Orders
+    -> INNER JOIN dept ON employe.empid=dept.empid;
+ERROR 1146 (42S02): Table 'govind.orders' doesn't exist
+mysql> select employe.empid,dept.position,employe.name from employe inner join dept on employe.empid=dept.empid;
++-------+------------------+----------------+
+| empid | position         | name           |
++-------+------------------+----------------+
+|     1 | manager          | govind         |
+|     2 | manager          | gopal          |
+|     2 | manager          | gopal          |
+|     3 | freasher         | aman kumar     |
+|     4 |  project manager | anmol          |
+|     5 | manager          | ramanjee       |
+|     6 |  accountant      | gopi           |
+|     7 |  asst-manager    | gulshna rahane |
+|     8 | manager          | rohit          |
+|     9 | cleark           | kimu gushai    |
+|    10 | manager          | amit patel     |
+|    11 | manager          | rohan sunar    |
+|    12 | manager          | aman bhist     |
+|    13 | developer        | aman ray       |
+|    14 | manager          | anmol kumar    |
+|    15 | reachers         | raman yadav    |
+|    16 | head manager     | gopi           |
+|    17 | manager          | gulshna ray    |
+|    18 | dept-manager     | rohit kumar    |
+|    19 | manager          | kimu gushai    |
+|    20 | manager          | amit yadav     |
++-------+------------------+----------------+
+21 rows in set (0.00 sec)
+
+mysql> select employe.empid,dept.position,employe.name from employe left join dept on employe.empid=dept.empid;
++-------+------------------+----------------+
+| empid | position         | name           |
++-------+------------------+----------------+
+|     1 | manager          | govind         |
+|     2 | manager          | gopal          |
+|     2 | manager          | gopal          |
+|     3 | freasher         | aman kumar     |
+|     4 |  project manager | anmol          |
+|     5 | manager          | ramanjee       |
+|     6 |  accountant      | gopi           |
+|     7 |  asst-manager    | gulshna rahane |
+|     8 | manager          | rohit          |
+|     9 | cleark           | kimu gushai    |
+|    10 | manager          | amit patel     |
+|    11 | manager          | rohan sunar    |
+|    12 | manager          | aman bhist     |
+|    13 | developer        | aman ray       |
+|    14 | manager          | anmol kumar    |
+|    15 | reachers         | raman yadav    |
+|    16 | head manager     | gopi           |
+|    17 | manager          | gulshna ray    |
+|    18 | dept-manager     | rohit kumar    |
+|    19 | manager          | kimu gushai    |
+|    20 | manager          | amit yadav     |
+|    21 | NULL             | rohan kumar    |
+|    22 | NULL             | gagan bhist    |
+|    23 | NULL             | rupam ray      |
+|    24 | NULL             | ankit kumar    |
+|    25 | NULL             | balram yadav   |
+|    26 | NULL             | rakesh         |
+|    27 | NULL             | golu ray       |
+|    28 | NULL             | rohit shingh   |
+|    29 | NULL             | kimu shinhg    |
+|    30 | NULL             | amit shingh    |
+|    31 | NULL             | anand kumar    |
++-------+------------------+----------------+
+32 rows in set (0.05 sec)
+
+mysql> select employe.empid,dept.position,employe.name from employe right join dept on employe.empid=dept.empid;
++-------+------------------+----------------+
+| empid | position         | name           |
++-------+------------------+----------------+
+|     1 | manager          | govind         |
+|     2 | manager          | gopal          |
+|     2 | manager          | gopal          |
+|     3 | freasher         | aman kumar     |
+|     4 |  project manager | anmol          |
+|     5 | manager          | ramanjee       |
+|     6 |  accountant      | gopi           |
+|     7 |  asst-manager    | gulshna rahane |
+|     8 | manager          | rohit          |
+|     9 | cleark           | kimu gushai    |
+|    10 | manager          | amit patel     |
+|    11 | manager          | rohan sunar    |
+|    12 | manager          | aman bhist     |
+|    13 | developer        | aman ray       |
+|    14 | manager          | anmol kumar    |
+|    15 | reachers         | raman yadav    |
+|    16 | head manager     | gopi           |
+|    17 | manager          | gulshna ray    |
+|    18 | dept-manager     | rohit kumar    |
+|    19 | manager          | kimu gushai    |
+|    20 | manager          | amit yadav     |
++-------+------------------+----------------+
+21 rows in set (0.04 sec)
+
+mysql>ysql> select * from employe where salary  not  between 15000 and 50000 order by name;
++-------+----------------+--------+------+------------+--------+
+| empid | name           | salary | age  | city       | Bgroup |
++-------+----------------+--------+------+------------+--------+
+|     3 | aman kumar     | 150000 |   24 | pune       | b+     |
+|    13 | aman ray       | 150000 |   24 | pune       | a+     |
+|    10 | amit patel     | 154000 |   24 | begusarai  | ab+    |
+|    20 | amit yadav     | 154000 |   24 | begusarai  | ab-    |
+|    31 | anand kumar    | 150890 |   34 | patna      | a-     |
+|     4 | anmol          | 150000 |   23 | panipath   | ab+    |
+|    14 | anmol kumar    | 150000 |   23 | panipath   | b+     |
+|    25 | balram yadav   | 115000 |   21 | pune       | ab+    |
+|    27 | golu ray       |  11500 |   26 | usa        | a+     |
+|     2 | gopal          | 150000 |   22 | pune       | a+     |
+|     2 | gopal          | 150000 |   22 | pune       | a+     |
+|     6 | gopi           | 150000 |   32 | pune       | a+     |
+|    16 | gopi           | 150000 |   32 | pune       | a-     |
+|     7 | gulshna rahane |  11500 |   22 | usa        | b+     |
+|    17 | gulshna ray    |  11500 |   22 | usa        | ab+    |
+|    26 | rakesh         | 140000 |   32 | pune       | b+     |
+|    21 | rohan kumar    | 150000 |   22 | patna      | a+     |
+|    11 | rohan sunar    | 150000 |   22 | patna      | b+     |
+|     8 | rohit          | 150000 |   24 | pundichari | ab+    |
+|    18 | rohit kumar    | 150000 |   24 | pundichari | ab-    |
+|    28 | rohit shingh   | 160000 |   64 | pundichari | a+     |
+|    23 | rupam ray      |  10000 |   24 | pune       | ab+    |
++-------+----------------+--------+------+------------+--------+
+22 rows in set (0.00 sec)
+
+mysql> select * from employe where name like 'a%';
++-------+-------------+--------+------+-----------+--------+
+| empid | name        | salary | age  | city      | Bgroup |
++-------+-------------+--------+------+-----------+--------+
+|     3 | aman kumar  | 150000 |   24 | pune      | b+     |
+|     4 | anmol       | 150000 |   23 | panipath  | ab+    |
+|    10 | amit patel  | 154000 |   24 | begusarai | ab+    |
+|    12 | aman bhist  |  20000 |   24 | patna     | a+     |
+|    13 | aman ray    | 150000 |   24 | pune      | a+     |
+|    14 | anmol kumar | 150000 |   23 | panipath  | b+     |
+|    20 | amit yadav  | 154000 |   24 | begusarai | ab-    |
+|    24 | ankit kumar |  50000 |   23 | panipath  | ab-    |
+|    30 | amit shingh |  15000 |   45 | begusarai | ab     |
+|    31 | anand kumar | 150890 |   34 | patna     | a-     |
++-------+-------------+--------+------+-----------+--------+
+10 rows in set (0.04 sec)
+
+mysql> select * from employe where name like '_p%';
+Empty set (0.00 sec)
+
+mysql> select * from employe where name like '_b%';
+Empty set (0.00 sec)
+
+mysql> select * from employe where name like '___v%';
+Empty set (0.00 sec)
+
+mysql> select * from employe where name like '-%d';
+Empty set (0.00 sec)
+
+mysql> select * from employe where name like '%d';
++-------+--------+--------+------+-------+--------+
+| empid | name   | salary | age  | city  | Bgroup |
++-------+--------+--------+------+-------+--------+
+|     1 | govind |  15000 |   22 | patna | a+     |
++-------+--------+--------+------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from employe where name like '%a%';
++-------+----------------+--------+------+------------+--------+
+| empid | name           | salary | age  | city       | Bgroup |
++-------+----------------+--------+------+------------+--------+
+|     2 | gopal          | 150000 |   22 | pune       | a+     |
+|     2 | gopal          | 150000 |   22 | pune       | a+     |
+|     3 | aman kumar     | 150000 |   24 | pune       | b+     |
+|     4 | anmol          | 150000 |   23 | panipath   | ab+    |
+|     5 | ramanjee       |  15000 |   21 | pune       | ab-    |
+|     7 | gulshna rahane |  11500 |   22 | usa        | b+     |
+|     9 | kimu gushai    |  15400 |   22 | delhi      | ab-    |
+|    10 | amit patel     | 154000 |   24 | begusarai  | ab+    |
+|    11 | rohan sunar    | 150000 |   22 | patna      | b+     |
+|    12 | aman bhist     |  20000 |   24 | patna      | a+     |
+|    13 | aman ray       | 150000 |   24 | pune       | a+     |
+|    14 | anmol kumar    | 150000 |   23 | panipath   | b+     |
+|    15 | raman yadav    |  15000 |   21 | pune       | ab     |
+|    17 | gulshna ray    |  11500 |   22 | usa        | ab+    |
+|    18 | rohit kumar    | 150000 |   24 | pundichari | ab-    |
+|    19 | kimu gushai    |  15400 |   22 | delhi      | ab+    |
+|    20 | amit yadav     | 154000 |   24 | begusarai  | ab-    |
+|    21 | rohan kumar    | 150000 |   22 | patna      | a+     |
+|    22 | gagan bhist    |  20000 |   24 | bangoluru  | b+     |
+|    23 | rupam ray      |  10000 |   24 | pune       | ab+    |
+|    24 | ankit kumar    |  50000 |   23 | panipath   | ab-    |
+|    25 | balram yadav   | 115000 |   21 | pune       | ab+    |
+|    26 | rakesh         | 140000 |   32 | pune       | b+     |
+|    27 | golu ray       |  11500 |   26 | usa        | a+     |
+|    30 | amit shingh    |  15000 |   45 | begusarai  | ab     |
+|    31 | anand kumar    | 150890 |   34 | patna      | a-     |
++-------+----------------+--------+------+------------+--------+
+26 rows in set (0.00 sec)
+
+mysql> select * from employe where city like 'p%';
++-------+--------------+--------+------+------------+--------+
+| empid | name         | salary | age  | city       | Bgroup |
++-------+--------------+--------+------+------------+--------+
+|     1 | govind       |  15000 |   22 | patna      | a+     |
+|     2 | gopal        | 150000 |   22 | pune       | a+     |
+|     2 | gopal        | 150000 |   22 | pune       | a+     |
+|     3 | aman kumar   | 150000 |   24 | pune       | b+     |
+|     4 | anmol        | 150000 |   23 | panipath   | ab+    |
+|     5 | ramanjee     |  15000 |   21 | pune       | ab-    |
+|     6 | gopi         | 150000 |   32 | pune       | a+     |
+|     8 | rohit        | 150000 |   24 | pundichari | ab+    |
+|    11 | rohan sunar  | 150000 |   22 | patna      | b+     |
+|    12 | aman bhist   |  20000 |   24 | patna      | a+     |
+|    13 | aman ray     | 150000 |   24 | pune       | a+     |
+|    14 | anmol kumar  | 150000 |   23 | panipath   | b+     |
+|    15 | raman yadav  |  15000 |   21 | pune       | ab     |
+|    16 | gopi         | 150000 |   32 | pune       | a-     |
+|    18 | rohit kumar  | 150000 |   24 | pundichari | ab-    |
+|    21 | rohan kumar  | 150000 |   22 | patna      | a+     |
+|    23 | rupam ray    |  10000 |   24 | pune       | ab+    |
+|    24 | ankit kumar  |  50000 |   23 | panipath   | ab-    |
+|    25 | balram yadav | 115000 |   21 | pune       | ab+    |
+|    26 | rakesh       | 140000 |   32 | pune       | b+     |
+|    28 | rohit shingh | 160000 |   64 | pundichari | a+     |
+|    31 | anand kumar  | 150890 |   34 | patna      | a-     |
++-------+--------------+--------+------+------------+--------+
+22 rows in set (0.00 sec)
+
+mysql> select * from employe where city like 'p%' and name like '%n';
+Empty set (0.00 sec)
+
+mysql> select * from employe where city like 'p%' and name like '%r';
++-------+-------------+--------+------+------------+--------+
+| empid | name        | salary | age  | city       | Bgroup |
++-------+-------------+--------+------+------------+--------+
+|     3 | aman kumar  | 150000 |   24 | pune       | b+     |
+|    11 | rohan sunar | 150000 |   22 | patna      | b+     |
+|    14 | anmol kumar | 150000 |   23 | panipath   | b+     |
+|    18 | rohit kumar | 150000 |   24 | pundichari | ab-    |
+|    21 | rohan kumar | 150000 |   22 | patna      | a+     |
+|    24 | ankit kumar |  50000 |   23 | panipath   | ab-    |
+|    31 | anand kumar | 150890 |   34 | patna      | a-     |
++-------+-------------+--------+------+------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employe where city like'pune';
++-------+--------------+--------+------+------+--------+
+| empid | name         | salary | age  | city | Bgroup |
++-------+--------------+--------+------+------+--------+
+|     2 | gopal        | 150000 |   22 | pune | a+     |
+|     2 | gopal        | 150000 |   22 | pune | a+     |
+|     3 | aman kumar   | 150000 |   24 | pune | b+     |
+|     5 | ramanjee     |  15000 |   21 | pune | ab-    |
+|     6 | gopi         | 150000 |   32 | pune | a+     |
+|    13 | aman ray     | 150000 |   24 | pune | a+     |
+|    15 | raman yadav  |  15000 |   21 | pune | ab     |
+|    16 | gopi         | 150000 |   32 | pune | a-     |
+|    23 | rupam ray    |  10000 |   24 | pune | ab+    |
+|    25 | balram yadav | 115000 |   21 | pune | ab+    |
+|    26 | rakesh       | 140000 |   32 | pune | b+     |
++-------+--------------+--------+------+------+--------+
+11 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
