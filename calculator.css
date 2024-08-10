@@ -1,0 +1,52 @@
+
+ /* this  css is for calculator */
+.calculator-css{
+    border: 2px solid;
+    height: 530px;
+    width: 250px
+   
+   
+   
+}
+.button{
+width: 70px;
+height: 70px;
+margin: 4px;
+}
+
+
+
+#display{
+    width: 180px;
+    height: 30px;
+    font-size: 30 px;
+    margin-left: 25px ;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-right: 10px;
+   border-radius: 2px;
+}
+.button-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content :center;
+}
+#zero{
+    margin: 5px;
+}
+
+
+
+/* this css code is for ToDo App Project */
+/* #input{
+    height: 30px;
+    width: 150px;
+    border: 2px solid black;
+}
+#Add-button{
+    background-color: red;
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+
+} */
